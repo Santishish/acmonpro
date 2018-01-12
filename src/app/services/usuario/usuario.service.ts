@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { User } from './../../models/user.model';
 import { HttpClient } from '@angular/common/http';
+import { UploadService } from './../upload/upload.service';
 import { URL_SERVICIOS } from './../../config/config';
 
 declare var swal: any;
@@ -13,7 +14,8 @@ export class UsuarioService {
 
   constructor(
     public http: HttpClient,
-    public router: Router
+    public router: Router,
+    public uploadService: UploadService
   ) {
     this.loadStorage();
   }
@@ -38,6 +40,7 @@ export class UsuarioService {
 
     return this.http.post(url, user)
       .map((res: any) => {
+
         this.userStorage(res.id, res.token, res.user);
         return true;
       });
@@ -58,6 +61,7 @@ export class UsuarioService {
     this.token = '';
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('id');
     this.router.navigate(['/login']);
   }
 
@@ -83,6 +87,27 @@ export class UsuarioService {
         swal('Usuario creado', user.email, 'success');
         return resp.user;
       });
+  }
+
+  updateUser (user: User) {
+    let url = `${URL_SERVICIOS}/api/users/${user._id}?token=${this.token}`;
+
+    return this.http.put(url, user)
+      .map((res: any) => {
+        this.userStorage(res.userUpdated._id, this.token, res.userUpdated);
+        swal('Usuario actualizado', user.name, 'success');
+        return true;
+      });
+  }
+
+  changeImage (file: File, id: string) {
+    this.uploadService.uploadFile(file, 'users', id)
+      .then((res: any) => {
+        this.user.img = res.userUpdated.img;
+        swal('Imagen actualizada', this.user.name, 'success');
+        this.userStorage(id, this.token, this.user);
+      })
+      .catch(err => console.log(err));
   }
 
 
