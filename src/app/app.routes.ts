@@ -5,9 +5,9 @@ import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component
 import { RegisterComponent } from './login/register.component';
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, data: { titulo: 'Login' } },
+  { path: 'register', component: RegisterComponent, data: { titulo: 'Registro' } },
   { path: '**', component: NopagefoundComponent }
 ];
 
-export const APP_ROUTES = RouterModule.forRoot( appRoutes, { useHash: false } );
+export const APP_ROUTES = RouterModule.forRoot( appRoutes, { useHash: true } );
