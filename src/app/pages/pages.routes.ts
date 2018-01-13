@@ -7,6 +7,7 @@ import { ProgressComponent } from "./progress/progress.component";
 import { Graficas1Component } from "./graficas1/graficas1.component";
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from "./users/users.component";
 
 
 
@@ -21,6 +22,9 @@ const pagesRoutes: Routes = [
       { path: 'graficas1', component: Graficas1Component, data: { titulo: 'Gráficas' } },
       { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes de Tema' } },
       { path: 'profile', component: ProfileComponent, data: { titulo: 'Perfil de Usuario' } },
+
+      // Mantenimientos
+      { path: 'users', component: UsersComponent, data: { titulo: 'Mantenimiento de Usuarios' } },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
     ]
   }
