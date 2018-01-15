@@ -39,7 +39,7 @@ export class UsersComponent implements OnInit {
 
   changePage (value: number) {
     let page = this.page + value;
-    if ((page * 5) - this.totalRegisters > 5) {
+    if ((page * 5) - this.totalRegisters >= 5) {
       return;
     }
 
