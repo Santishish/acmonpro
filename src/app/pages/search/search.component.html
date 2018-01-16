@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Usuarios</h4>
+        <table class="table table-hover">
+          <tbody>
+            <tr *ngIf="users.length === 0; usuarios">
+              <td>
+                No hay registros
+              </td>
+            </tr>
+            <tr #usuarios *ngFor="let user of users">
+              <td>
+                <img [src]="user.img | image" class="img-50 img-rounded">
+              </td>
+              <td>{{ user.name }}</td>
+              <td>
+                <button routerLink="/users" class="btn btn-primary">
+                  <i class="fa fa-edit"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Médicos</h4>
+        <table class="table table-hover">
+          <tbody>
+              <tr *ngIf="doctors.length === 0; medicos">
+                  <td>
+                    No hay registros
+                  </td>
+                </tr>
+            <tr #medicos *ngFor="let doctor of doctors">
+              <td>
+                <img [src]="doctor.img | image:'doctor'" class="img-50 img-rounded">
+              </td>
+              <td>{{ doctor.name }}</td>
+              <td>
+                <button [routerLink]="['/doctor', doctor._id]" class="btn btn-primary">
+                  <i class="fa fa-edit"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Hospitales</h4>
+        <table class="table table-hover">
+          <tbody>
+              <tr *ngIf="hospitals.length === 0; hospitales">
+                  <td>
+                    No hay registros
+                  </td>
+                </tr>
+            <tr #hospitals *ngFor="let hospital of hospitals">
+              <td>
+                <img [src]="hospital.img | image:'hospital'" class="img-50 img-rounded">
+              </td>
+              <td>{{ hospital.name }}</td>
+              <td>
+                <button routerLink="/hospitals" class="btn btn-primary">
+                  <i class="fa fa-edit"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

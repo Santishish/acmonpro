@@ -1,5 +1,5 @@
 import { RouterModule, Routes } from "@angular/router";
-import { LoginGuardGuard } from './../services/service.index';
+import { LoginGuardGuard, AdminGuard } from './../services/service.index';
 
 import { PagesComponent } from "./pages.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
@@ -11,6 +11,7 @@ import { UsersComponent } from "./users/users.component";
 import { HospitalsComponent } from "./hospitals/hospitals.component";
 import { DoctorsComponent } from "./doctors/doctors.component";
 import { DoctorComponent } from "./doctors/doctor.component";
+import { SearchComponent } from "./search/search.component";
 
 
 
@@ -25,9 +26,10 @@ const pagesRoutes: Routes = [
       { path: 'graficas1', component: Graficas1Component, data: { titulo: 'Gráficas' } },
       { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes de Tema' } },
       { path: 'profile', component: ProfileComponent, data: { titulo: 'Perfil de Usuario' } },
+      { path: 'search/:query', component: SearchComponent, data: { titulo: 'Buscador' } },
 
       // Mantenimientos
-      { path: 'users', component: UsersComponent, data: { titulo: 'Mantenimiento de Usuarios' } },
+      { path: 'users', component: UsersComponent, canActivate: [ AdminGuard ], data: { titulo: 'Mantenimiento de Usuarios' } },
       { path: 'hospitals', component: HospitalsComponent, data: { titulo: 'Mantenimiento de Hospitales' } },
       { path: 'doctors', component: DoctorsComponent, data: { titulo: 'Mantenimiento de Médicos' } },
       { path: 'doctor/:id', component: DoctorComponent, data: { titulo: 'Actualizar Médico' } },
