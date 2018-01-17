@@ -8,8 +8,6 @@ import { PipesModule } from './../pipes/pipes.module';
 
 import { PAGES_ROUTES } from './pages.routes';
 
-
-import { PagesComponent } from './pages.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { ProgressComponent } from './progress/progress.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,7 +17,6 @@ import { GraficoDonaComponent } from './../components/grafico-dona/grafico-dona.
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
-import { ModalUploadComponent } from './../components/modal-upload/modal-upload.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { DoctorComponent } from './doctors/doctor.component';
@@ -30,13 +27,11 @@ import { SearchComponent } from './search/search.component';
     DashboardComponent,
     ProgressComponent,
     Graficas1Component,
-    PagesComponent,
     IncrementadorComponent,
     GraficoDonaComponent,
     AccountSettingsComponent,
     ProfileComponent,
     UsersComponent,
-    ModalUploadComponent,
     HospitalsComponent,
     DoctorsComponent,
     DoctorComponent,
@@ -45,8 +40,7 @@ import { SearchComponent } from './search/search.component';
   exports: [
     DashboardComponent,
     ProgressComponent,
-    Graficas1Component,
-    PagesComponent
+    Graficas1Component
   ],
   imports: [
     SharedModule,

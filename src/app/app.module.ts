@@ -13,22 +13,23 @@ import { RegisterComponent } from './login/register.component';
 
 // Servicios temporales
 import { ServiceModule } from './services/service.module';
-import { PagesModule } from './pages/pages.module';
+import { PagesComponent } from './pages/pages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTES,
-    PagesModule,
     SharedModule,
     FormsModule,
     ServiceModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
